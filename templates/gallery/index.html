@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Gallery - Albums</title>
+    </head>
+    <body>
+        {% if album_list %}
+        <h3>Albums:</h3>
+        <ul>
+            {% for album in album_list %}
+            <li><a href="/gallery/album/{{ album.id }}/">{{ album.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No albums available</p>
+        {% endif %}
+    </body>
+</html>

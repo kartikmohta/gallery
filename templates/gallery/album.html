@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>{{ album.name }} - Gallery</title>
+    </head>
+    <body>
+        <h3>{{ album.name }}</h3>
+        {% if photo_list %}
+        {% for photo in photo_list %}
+        <a href="{{ photo.image.url }}"><img src="{{ photo.image.url }}" height="128"/></a>
+        {% endfor %}
+        {% else %}
+        <p>No photos in album!</p>
+        {% endif %}
+    </body>
+</html>
