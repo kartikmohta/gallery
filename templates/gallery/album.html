@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <html>
     <head>
         <title>{{ album.name }} - Gallery</title>
@@ -6,7 +7,10 @@
         <h3>{{ album.name }}</h3>
         {% if photo_list %}
         {% for photo in photo_list %}
-        <a href="{{ photo.image.url }}"><img src="{{ photo.image.url }}" height="128"/></a>
+        <div style="display: inline-block; vertical-align: middle; width:140px">
+            <a href="{{ photo.image.url }}"><img src="{{ photo.image|thumbnail }}" style="vertical-align: top"/></a>
+            <div style="text-align:center; height: 1.25em; width: 128px; overflow: hidden; font-size: 8pt">{{ photo.caption }}</div>
+        </div>
         {% endfor %}
         {% else %}
         <p>No photos in album!</p>
